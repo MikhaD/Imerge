@@ -1,0 +1,24 @@
+aside {
+	width: var(--menu-width);
+	margin: var(--margin) var(--margin) 0 auto;
+	display: grid;
+	grid-template-rows: repeat(auto-fit, 1fr);
+	gap: var(--margin);
+}
+
+.layer {
+	background-color: var(--bg-color);
+	box-shadow: 0 0 0.5rem 0.2rem #00000020;
+	border-radius: 2px;
+}
+
+.menu-item {
+	min-height: 15rem;
+	padding: var(--margin);
+}
+
+#menu-top {
+	background-color: black;
+	min-height: unset;
+	height: 4rem;
+}

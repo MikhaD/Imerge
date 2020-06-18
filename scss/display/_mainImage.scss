@@ -1,0 +1,32 @@
+main {
+	position: fixed;
+	display: flex;
+	top: var(--margin);
+	left: var(--margin);
+	bottom: var(--margin);
+	right: calc(var(--menu-width) + 2*var(--margin));
+}
+
+#image {
+	margin: auto;
+	// background-color: blanchedalmond;
+	padding: calc(var(--image-size) / 10);
+	width: var(--image-size);
+	height: var(--image-size);
+}
+
+#initial {
+	animation: appear 1s ease-out;
+}
+
+@keyframes appear {
+	0% {
+		r: 0;
+		opacity: 0;
+	}
+
+	100% {
+		r: 50%;
+		opacity: 100%;
+	}
+}

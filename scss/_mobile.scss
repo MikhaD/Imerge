@@ -1,0 +1,17 @@
+@media (orientation: portrait) {
+	main {
+		--height: 60vh;
+		position: relative;
+		height: var(--height);
+		top: unset;
+		right: unset;
+		bottom: unset;
+		left: unset;
+	}
+
+	aside {
+		width: unset;
+		margin: 1rem;
+	}
+
+}

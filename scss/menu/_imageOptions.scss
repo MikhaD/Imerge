@@ -1,0 +1,63 @@
+#gallery-container {
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
+	user-select: none;
+
+	&::before, &::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 25%;
+		height: 100%;
+		z-index: 1;
+	}
+	&::before {
+		left: 0;
+		background-image: linear-gradient(90deg, var(--page-bg-color), transparent);
+	}
+	&::after {
+		right: 0;
+		background-image: linear-gradient(-90deg, var(--page-bg-color), transparent);
+	}
+	&:hover .scroll {
+		opacity: 100%;
+	}
+}
+
+.scroll {
+	--size: 2rem;
+	position: absolute;
+	width: 0;
+	height: 0;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+	top: calc(50% - var(--size));
+	border-top: var(--size) solid transparent;
+	border-bottom: var(--size) solid transparent;
+	transition: opacity 0.25s ease-in-out, transform 0.1s ease-in-out;
+	&:hover { transform: scale(1.2); }
+	&:active { transform: scale(1);	}
+	&[direction="left"] {
+		left: 2%;
+		border-right:	var(--size) solid var(--bg-color);
+	}
+	&[direction="right"] {
+		right: 2%;
+		border-left: var(--size) solid var(--bg-color);
+	}
+}
+
+#gallery {
+	position: relative;
+	right: 0rem;
+	display: grid;
+	grid-template-columns: repeat(8, var(--option-size));
+	gap: var(--margin);
+	img {
+		@extend .layer;
+		width: var(--option-size);
+		height: var(--option-size);
+	}
+}
