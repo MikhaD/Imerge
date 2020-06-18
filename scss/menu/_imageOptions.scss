@@ -1,6 +1,7 @@
 #gallery-container {
+	--fade-size: 5rem;
 	width: 100%;
-	overflow-x: hidden;
+	overflow: hidden;
 	position: relative;
 	user-select: none;
 
@@ -8,7 +9,7 @@
 		content: "";
 		position: absolute;
 		top: 0;
-		width: 25%;
+		width: var(--fade-size);
 		height: 100%;
 		z-index: 1;
 	}
@@ -37,8 +38,12 @@
 	border-top: var(--size) solid transparent;
 	border-bottom: var(--size) solid transparent;
 	transition: opacity 0.25s ease-in-out, transform 0.1s ease-in-out;
-	&:hover { transform: scale(1.2); }
-	&:active { transform: scale(1);	}
+	&:hover {
+		transform: scale(1.2);
+	}
+	&:active {
+		transform: scale(1);
+	}
 	&[direction="left"] {
 		left: 2%;
 		border-right:	var(--size) solid var(--bg-color);
@@ -51,13 +56,32 @@
 
 #gallery {
 	position: relative;
-	right: 0rem;
 	display: grid;
-	grid-template-columns: repeat(8, var(--option-size));
+	scroll-behavior: smooth;
+	overflow-y: hidden;
+	// If overflow-x was set to hidden I wouldn't need all the browser specific properties to hide the horizontal scroll wheel, but it would prevent users on touch screen devices from swiping to scroll across the images in the gallery, and users on desktop from holding middle mouse button and moving left and right
+	overflow-x: scroll;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	grid-template-columns: repeat(10, var(--option-size));
 	gap: var(--margin);
+	padding-left: calc(var(--fade-size)*0.8);
+	.pad {
+		width: calc(var(--fade-size)*0.8);
+	}
 	img {
 		@extend .layer;
 		width: var(--option-size);
 		height: var(--option-size);
+		transition: transform 0.1s ease-in-out;
+		&:hover {
+			transform: scale(1.1);
+		}
+		&:active {
+			transform: scale(0.95);
+		}
 	}
 }

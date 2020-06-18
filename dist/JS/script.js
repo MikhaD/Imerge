@@ -34,9 +34,18 @@ firstCircle.addEventListener("mouseenter", split);
 
 // ########################################### Scroll Image Gallery ##########################################
 
-// const galleryContainer = document.querySelector("#gallery-container");
-// const gallery = galleryContainer.querySelector("#gallery");
+const gallery = document.querySelector("#gallery");
+const imageWidth = gallery.querySelector("img").getBoundingClientRect().width;
 
-// galleryContainer.addEventListener("click", (e) => {
-// 	console.log(e);
-// });
+gallery.addEventListener("wheel", (e) => {
+	e.preventDefault();
+	direction = Number(e.deltaY) < 0 ? -1 : 1;
+	gallery.scrollTo(gallery.scrollLeft + direction*imageWidth, 0);
+});
+
+document.querySelectorAll(".scroll").forEach((i) => {
+	i.addEventListener("click", (e) => {
+		let direction = (e.target.getAttribute("direction") == "left") ? -1 : 1
+		gallery.scrollTo((gallery.scrollLeft + direction*imageWidth), 0);
+	})
+});
