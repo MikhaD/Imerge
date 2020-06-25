@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="../images/favicon.svg" type="image/x-icon">
 	<link rel="stylesheet" href="css/main.css">
 	<script src="JS/script.js" defer></script>
-	<title>Image Cells</title>
+	<title>Imerge</title>
 </head>
 	<body>
 		<main class="layer">
@@ -19,22 +19,57 @@
 			<div id="gallery-container">
 				<div class="scroll" direction="left"></div>
 				<div id="gallery" class="">
-					<img src="../images/1.png">
-					<img src="../images/2.png">
-					<img src="../images/3.png">
-					<img src="../images/4.png">
-					<img src="../images/5.png">
-					<img src="../images/6.png">
-					<img src="../images/7.png">
-					<img src="../images/8.png">
+					<img src="../images/1.png" tabindex="0">
+					<img src="../images/2.png" tabindex="0">
+					<img src="../images/3.png" tabindex="0">
+					<img src="../images/4.png" tabindex="0">
+					<img src="../images/5.png" tabindex="0">
+					<img src="../images/6.png" tabindex="0">
+					<img src="../images/7.png" tabindex="0">
+					<img src="../images/8.png" tabindex="0">
 					<div class="pad"></div>
 				</div>
 				<div class="scroll" direction="right"></div>
 			</div>
-			<div class="layer menu-item">different image options</div>
+			<div class="layer menu-item">
+				<input type="file" id="upload" accept="image/png, image/jpeg" multiple>
+				<label for="upload" id="upload-label" title="choose image">
+					<h2>Use your own image</h2>
+					<div class="file-icons">
+						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 101 121" fill="none">
+							<path class="outline" d="M10.137 3.235h59.138l28.362 28.362v79.138a7.5 7.5 0 0 1-7.5 7.5h-80a7.5 7.5 0 0 1-7.5-7.5v-100a7.5 7.5 0 0 1 7.5-7.5z" stroke-width="5"/>
+							<g class="png-label">
+								<path d="M32.743 80.007H29.47v-5.58h3.357c.903.016 1.61.293 2.124.83s.77 1.24.77 2.112c0 .846-.256 1.497-.77 1.953-.505.456-1.24.684-2.21.684z"/>
+								<path fill-rule="evenodd" d="M100.137 60.735h-100v40h100v-40zm-70.666 28.5v-6.262h3.2c2.108 0 3.756-.5 4.944-1.5 1.196-1.01 1.794-2.384 1.794-4.126 0-1.148-.273-2.17-.818-3.064-.545-.903-1.327-1.6-2.344-2.087-1.01-.488-2.18-.732-3.516-.732H25.81v17.773h3.662zm23.767 0H56.9V71.462h-3.65v11.72l-7.14-11.72h-3.662v17.773h3.662V77.54l7.13 11.694zm18.627-.403c1.204-.44 2.136-1.054 2.795-1.843v-7.092h-6.995v2.698h3.333v3.064c-.586.586-1.567.88-2.942.88-1.367 0-2.405-.476-3.113-1.428s-1.062-2.36-1.062-4.224V79.75c.008-1.847.338-3.24.99-4.175s1.6-1.404 2.844-1.404c.977 0 1.742.236 2.295.708.562.472.924 1.217 1.087 2.234h3.564c-.22-1.92-.924-3.38-2.112-4.382-1.188-1.01-2.836-1.514-4.944-1.514-1.514 0-2.836.346-3.967 1.038-1.123.684-1.986 1.676-2.588 2.978-.594 1.294-.89 2.828-.89 4.602v1.21c.016 1.725.338 3.227.964 4.504.635 1.278 1.53 2.254 2.686 2.93 1.164.667 2.515 1 4.053 1 1.465 0 2.8-.216 4.004-.647z"/>
+							</g>
+						</svg>
+						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 101 121" fill="none">
+							<path class="outline" d="M10.367 3.235h59.138l28.362 28.362v79.138a7.5 7.5 0 0 1-7.5 7.5h-80a7.5 7.5 0 0 1-7.5-7.5v-100a7.5 7.5 0 0 1 7.5-7.5z" stroke-width="5"/>
+							<g class="jpg-label">
+								<path d="M49.78 80.007H46.51v-5.58h3.357c.903.016 1.61.293 2.124.83s.77 1.24.77 2.112c0 .846-.256 1.497-.77 1.953-.505.456-1.24.684-2.21.684z"/>
+								<path fill-rule="evenodd" d="M100.367 60.735h-100v40h100v-40zM39.2 71.462h-3.662v12.305c0 .887-.207 1.57-.623 2.05s-.973.72-1.672.72c-.79 0-1.367-.208-1.733-.623s-.55-1.058-.55-1.93h-3.686c0 1.75.525 3.105 1.575 4.065 1.05.952 2.515 1.428 4.395 1.428 1.147 0 2.177-.236 3.088-.708s1.615-1.14 2.112-2.002c.504-.87.757-1.872.757-3.003V71.462zm7.3 17.773v-6.262h3.21c2.108 0 3.756-.5 4.944-1.5 1.196-1.01 1.794-2.384 1.794-4.126 0-1.148-.273-2.17-.818-3.064-.545-.903-1.327-1.6-2.344-2.087-1.01-.488-2.18-.732-3.516-.732h-6.934v17.773h3.662zm24.243-.403c1.204-.44 2.136-1.054 2.795-1.843v-7.092h-6.995v2.698h3.332v3.064c-.586.586-1.567.88-2.942.88-1.367 0-2.405-.476-3.113-1.428s-1.062-2.36-1.062-4.224V79.75c.008-1.847.338-3.24.99-4.175s1.6-1.404 2.844-1.404c.977 0 1.74.236 2.295.708.56.472.924 1.217 1.086 2.234h3.564c-.22-1.92-.924-3.38-2.112-4.382-1.188-1.01-2.836-1.514-4.944-1.514-1.514 0-2.836.346-3.967 1.038-1.123.684-1.986 1.676-2.588 2.978-.594 1.294-.89 2.828-.89 4.602v1.21c.016 1.725.338 3.227.964 4.504.635 1.278 1.53 2.254 2.685 2.93 1.164.667 2.515 1 4.053 1 1.465 0 2.8-.216 4.004-.647z"/>
+							</g>
+						</svg>
+					</div>
+					<span class="instructions">Drop your own .png or .jpg here</span>
+					<div class="upload-card uploaded">
+						<h2>Success!</h2>
+						<span>Custom images can be found at the end of the gallery above</span>
+					</div>
+					<div class="upload-card failed">
+						<h2>Image selection failed</h2>
+						<span class="reason">Only .png and .jpg images are supported</span>
+					</div>
+					<div class="upload-card processing">
+						<h2>Processing Image</h2>
+						<progress class=".progress" max="100" value="30"></progress>
+					</div>
+				</label>
+			</div>
+			<div class="layer menu-item">use image url</div>
 			<div class="layer menu-item">swipe click or both</div>
 			<div class="layer menu-item">dark theme or light theme</div>
-			<div class="layer menu-item">upload your own image</div>
+			<div class="layer menu-item">Different image options</div>
 			<div class="layer menu-item">my web page, logo and github</div>
 			<div class="layer menu-item">
 				inspiration
@@ -45,8 +80,6 @@
 			</div>
 			<div class="layer menu-item">how to use this</div>
 			<div class="layer menu-item">use this on your own website</div>
-			<div class="layer menu-item"></div>
-			<div class="layer menu-item"></div>
 		</aside>
 	</body>
 </html>

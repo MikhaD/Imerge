@@ -6,8 +6,13 @@
   
 :root {
 	font-size: 62.5%;
+	font-family: 'Montserrat', sans-serif;
 }
 
 body {
 	background-color: var(--page-bg-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;;
 }

@@ -30,10 +30,10 @@ firstCircle.addEventListener("animationend", function() {
 	this.removeAttribute("animating");
 });
 
+// add eventhandler in html rather
 firstCircle.addEventListener("mouseenter", split);
 
 // ########################################### Scroll Image Gallery ##########################################
-
 const gallery = document.querySelector("#gallery");
 const imageWidth = gallery.querySelector("img").getBoundingClientRect().width;
 
@@ -49,3 +49,49 @@ document.querySelectorAll(".scroll").forEach((i) => {
 		gallery.scrollTo((gallery.scrollLeft + direction*imageWidth), 0);
 	})
 });
+
+// ############################################### Upload Image ##############################################
+(() => {
+const upload = document.querySelector("#upload-label");
+const processing = upload.querySelector(".processing");
+const failed = upload.querySelector(".failed");
+const uploaded = upload.querySelector(".uploaded");
+
+upload.addEventListener("drop", (e) => {
+	// prevent file from being opened in the browser
+	e.preventDefault();
+	e.target.classList.remove("drag-over");
+	processing.classList.add("visible");
+	// If there are any items
+	if (e.dataTransfer.items) {
+		for (let img of e.dataTransfer.files) {
+			if (["image/png", "image/jpeg"].indexOf(img.type) < 0) {
+				failed.classList.add("visible");
+				processing.classList.remove("visible");
+				setTimeout(() => failed.classList.remove("visible"), 3000);
+				break;
+			}
+		
+		}
+	}
+});
+
+upload.addEventListener("dragover", (e) => {
+	// prevent file from being opened in the browser
+	e.preventDefault();
+	e.target.classList.add("drag-over");
+});
+
+upload.addEventListener("dragleave", (e) => {
+	e.target.classList.remove("drag-over");
+});
+
+upload.addEventListener("click", (e) => {
+	if (processing.classList.contains("visible") || failed.classList.contains("visible") || uploaded.classList.contains("visible")) {
+		e.preventDefault();
+	}
+	failed.classList.remove("visible");
+	uploaded.classList.remove("visible");
+});
+
+})();
