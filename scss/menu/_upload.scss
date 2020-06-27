@@ -81,10 +81,10 @@ h2 { margin-bottom: 1.25rem; }
 
 .processing {
 	background-color: var(--blue);
-	.progress { width: 60%; }
+	#progress { width: 60%; }
 }
 
-.uploaded {
+.succeeded {
 	background-color: var(--green);
 }
 

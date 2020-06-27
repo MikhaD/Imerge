@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="../images/favicon.svg" type="image/x-icon">
 	<link rel="stylesheet" href="css/main.css">
-	<script src="JS/script.js" defer></script>
+	<script src="JS/main.js" type="module" defer></script>
 	<title>Imerge</title>
 </head>
 	<body>
@@ -19,14 +19,30 @@
 			<div id="gallery-container">
 				<div class="scroll" direction="left"></div>
 				<div id="gallery" class="">
-					<img src="../images/1.png" tabindex="0">
-					<img src="../images/2.png" tabindex="0">
-					<img src="../images/3.png" tabindex="0">
-					<img src="../images/4.png" tabindex="0">
-					<img src="../images/5.png" tabindex="0">
-					<img src="../images/6.png" tabindex="0">
-					<img src="../images/7.png" tabindex="0">
-					<img src="../images/8.png" tabindex="0">
+					<figure>
+						<img src="../images/1.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/2.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/3.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/4.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/5.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/6.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/7.png" tabindex="0">
+					</figure>
+					<figure>
+						<img src="../images/8.png" tabindex="0">
+					</figure>
 					<div class="pad"></div>
 				</div>
 				<div class="scroll" direction="right"></div>
@@ -52,7 +68,7 @@
 						</svg>
 					</div>
 					<span class="instructions">Drop your own .png or .jpg here</span>
-					<div class="upload-card uploaded">
+					<div class="upload-card succeeded">
 						<h2>Success!</h2>
 						<span>Custom images can be found at the end of the gallery above</span>
 					</div>
@@ -61,8 +77,8 @@
 						<span class="reason">Only .png and .jpg images are supported</span>
 					</div>
 					<div class="upload-card processing">
-						<h2>Processing Image</h2>
-						<progress class=".progress" max="100" value="30"></progress>
+						<h2></h2>
+						<progress id="progress" max="100" value="0"></progress>
 					</div>
 				</label>
 			</div>
