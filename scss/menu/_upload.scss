@@ -11,14 +11,13 @@ h2 { margin-bottom: 1.25rem; }
 }
 
 #upload-label.drag-over, #upload:focus + label, #upload:hover + label {
-	outline: none;
 	.outline { stroke: var(--bg-color); }
 	&::before { opacity: 25%; }
 }
 
 #upload-label {
 	--trans-time: 0.1s;
-	box-shadow: 0 0 5px 0 inset #00000040;
+	box-shadow: 0 0 0.5rem 0 inset #00000040;
 	position: relative;
 	display: block;
 	padding: 1rem;
@@ -91,5 +90,3 @@ h2 { margin-bottom: 1.25rem; }
 .failed {
 	background-color: var(--red);
 }
-
-.visible { opacity: 100%; }

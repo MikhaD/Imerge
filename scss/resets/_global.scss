@@ -2,11 +2,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	outline: none;
 }
   
 :root {
 	font-size: 62.5%;
-	font-family: 'Montserrat', sans-serif;
+	font-family: var(--text-font);
 }
 
 body {
@@ -14,5 +15,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', sans-serif;;
+	font-family: var(--title-font);
+}
+
+.visible {
+	opacity: 100%;
 }

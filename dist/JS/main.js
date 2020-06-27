@@ -136,6 +136,7 @@ document.querySelectorAll(".scroll").forEach((i) => {
 				result.classList = "from-user";
 				temp = document.createElement("div");
 				temp.addEventListener("click", (e) => {
+					root.style.setProperty("--total-options", --gallery.size);
 					e.target.parentElement.remove();
 				});
 				temp.textContent = "×";

@@ -82,12 +82,16 @@
 					</div>
 				</label>
 			</div>
-			<div class="layer menu-item">use image url</div>
-			<div class="layer menu-item">swipe click or both</div>
-			<div class="layer menu-item">dark theme or light theme</div>
-			<div class="layer menu-item">Different image options</div>
-			<div class="layer menu-item">my web page, logo and github</div>
-			<div class="layer menu-item">
+			<div class="layer menu-item from-url">
+				<input type="text" placeholder="Use image from URL" id="url-input" pattern="https?:\/\/.*\..*\/.*\.(jpg|jpeg|png|JPG|PNG|JPEG)$" required>
+				<!-- Link to regex testing: https://regex101.com/r/PRQPwg/1 -->
+				<button id="fetch">Fetch</button>
+			</div>
+			<div class="layer menu-item" style="min-height: 10rem;">swipe click or both</div>
+			<div class="layer menu-item" style="min-height: 10rem;">dark theme or light theme</div>
+			<div class="layer menu-item" style="min-height: 10rem;">Different image options</div>
+			<div class="layer menu-item" style="min-height: 10rem;">my web page, logo and github</div>
+			<div class="layer menu-item" style="min-height: 10rem;">
 				inspiration
 				<ul>
 					<li><a href="https://www.koalastothemax.com/" target="_blank">concept</a></li>
