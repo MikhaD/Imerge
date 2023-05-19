@@ -1,9 +1,9 @@
-// import Settings from "./classes/Settings";
-// import Gallery from "./classes/Settings";
-// import Imerge from "./classes/Settings";
+// import Settings from "./classes/Settings.js";
+// import Imerge from "./classes/Imerge.js";
+// import Gallery from "./classes/Gallery.js";
 
 const root = document.querySelector(":root");
-const image = root.querySelector("#image");
+const image = root.querySelector("#imerge");
 const firstCircle = image.querySelector("circle");
 // todo: Use ajax to load the first 8 images
 const gallery = document.querySelector("#gallery");
@@ -33,10 +33,10 @@ function split(e) {
 }
 
 function finishAnimating(e) {
-	e.target.removeAttribute("animating")
+	e.target.removeAttribute("animating");
 }
 
-firstCircle.addEventListener("animationend", function () {
+firstCircle.addEventListener("animationend", function() {
 	this.removeAttribute("animating");
 });
 
@@ -53,9 +53,9 @@ gallery.addEventListener("wheel", (e) => {
 // scroll image gallery on arrow press
 document.querySelectorAll(".scroll").forEach((i) => {
 	i.addEventListener("click", (e) => {
-		let direction = (e.target.getAttribute("direction") == "left") ? -1 : 1
+		let direction = (e.target.getAttribute("direction") == "left") ? -1 : 1;
 		gallery.scrollTo((gallery.scrollLeft + direction * gallery.imageWidth), 0);
-	})
+	});
 });
 
 // ############################################### Upload Image ##############################################
@@ -64,7 +64,7 @@ document.querySelectorAll(".scroll").forEach((i) => {
 	const processing = upload.querySelector(".processing");
 	const failed = upload.querySelector(".failed");
 	const succeeded = upload.querySelector(".succeeded");
-	const progress = document.querySelector("#progress");
+	const progress = document.querySelector("#upload-progress");
 	const pad = gallery.querySelector(".pad");
 
 	upload.addEventListener("dragover", (e) => {
@@ -72,11 +72,11 @@ document.querySelectorAll(".scroll").forEach((i) => {
 		e.preventDefault();
 		e.target.classList.add("drag-over");
 	});
-	// Stop hilighting drag area if user is not hovering over it
+	// Stop highlighting drag area if user is not hovering over it
 	upload.addEventListener("dragleave", (e) => {
 		e.target.classList.remove("drag-over");
 	});
-	// Prevent uploading while processing & remove success or 
+	// Prevent uploading while processing & remove success or
 	upload.addEventListener("click", (e) => {
 		if (processing.classList.contains("visible") || failed.classList.contains("visible") || succeeded.classList.contains("visible")) {
 			e.preventDefault();
@@ -94,8 +94,9 @@ document.querySelectorAll(".scroll").forEach((i) => {
 	});
 	// process files if the user clicks to upload images
 	document.querySelector("#upload").addEventListener("change", (e) => {
+		console.log("Change event");
 		if (e.target.files) {
-			processFiles(e.target.files)
+			processFiles(e.target.files);
 		}
 	});
 
@@ -161,9 +162,30 @@ document.querySelectorAll(".scroll").forEach((i) => {
 		reader.readAsDataURL(file);
 	}
 
-
-
-
+	// ----------------------------- Get image from url -----------------------------
+	const urlInput = document.querySelector("#url-input");
+	const fetch = document.querySelector("#fetch");
+	const failed2 = fetch.querySelector(".failed");
+	const succeeded2 = fetch.querySelector(".succeeded");
+	fetch.addEventListener("click", function(e) {
+		if (!this.classList.contains("flipped")) {
+			this.classList.add("flipped");
+			let img = new Image();
+			img.onload = function() {
+				succeeded2.classList.add("visible");
+				// allow user to click to flip back over
+				// add image to the gallery
+				// scroll to the correct place in the gallery
+				// flip back over after given interval
+			};
+			img.onerror = function() {
+				failed2.classList.add("visible");
+				// allow user to click to flip back over
+				// flip back over after given interval
+			};
+			img.src = urlInput.value;
+		}
+	});
 
 
 

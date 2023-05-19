@@ -1,18 +1,27 @@
-h2 { margin-bottom: 1.25rem; }
+h2 {
+	margin-bottom: 1.25rem;
+}
 
 #upload {
 	// Can't set visibility to hidden or display to none or it would no longer be able to be focused.
 	width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
 
-#upload-label.drag-over, #upload:focus + label, #upload:hover + label {
-	.outline { stroke: var(--bg-color); }
-	&::before { opacity: 25%; }
+#upload-label.drag-over,
+#upload:focus+label,
+#upload:hover+label {
+	.outline {
+		stroke: var(--bg-color);
+	}
+
+	&::before {
+		opacity: 25%;
+	}
 }
 
 #upload-label {
@@ -31,10 +40,12 @@ h2 { margin-bottom: 1.25rem; }
 	justify-content: center;
 	align-items: center;
 	user-select: none;
+
 	* {
 		z-index: 1;
 		pointer-events: none;
 	}
+
 	&::before {
 		content: "";
 		z-index: 0;
@@ -51,42 +62,26 @@ h2 { margin-bottom: 1.25rem; }
 
 
 .file-icons {
-	svg { height: 5rem; }
+	svg {
+		height: 4.5rem;
+	}
 }
 
 .outline {
+	stroke-width: 6;
 	stroke: var(--page-bg-color);
 	transition: stroke var(--trans-time) ease-in-out;
 }
 
-.png-label { fill: var(--blue); }
+.png-label {
+	fill: var(--blue);
+}
 
-.jpg-label { fill: var(--green);	}
+.jpg-label {
+	fill: var(--green);
+}
 
 .upload-card {
+	@extend .card;
 	padding: 1rem;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	opacity: 0;
-}
-
-.processing {
-	background-color: var(--blue);
-	#progress { width: 60%; }
-}
-
-.succeeded {
-	background-color: var(--green);
-}
-
-.failed {
-	background-color: var(--red);
 }
