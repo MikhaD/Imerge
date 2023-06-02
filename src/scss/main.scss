@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import "normalize.scss";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 62.5%;
+	height: 100%;
+
+	--bg-00: #fff;
+	--bg-01: #D8D8D8;
+
+	--fg-00: #000;
+
+	--red: #E34E4E;
+	--yellow: #E3D14E;
+	--green: #00C562;
+	--blue: #2D98F0;
+
+	--gap: 1rem;
+
+	background-color: var(--bg-01);
+	font-family: 'Montserrat', sans-serif;
+}
+
+body {
+	font-size: 1.4rem;
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.card {
+	box-shadow: 0 0 0.5rem 0.25rem #0002;
+	background-color: var(--bg-00);
+	border-radius: 0.2rem;
+	padding: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	margin-top: 0;
+}

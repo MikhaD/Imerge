@@ -1,0 +1,25 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: install node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependancies
+        run: npm ci
+      - name: compile
+        run: npm run build
+      - name: deploy to pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
